@@ -18,11 +18,13 @@ namespace KFU_Text_Analyze
         public AnalysisResult Analyze()
         {
             AnalysisResult a = new AnalysisResult();
-            
             a.InputText = Text;
-            Text = Regex.Replace(Text, @"[^a-zA-ZА-Яа-я ]+", "");
 
+            //Нормализация текста (Удаление мусора)
+            Text = Regex.Replace(Text, @"[^a-zA-ZА-Яа-я ]+", "");
             Text = Text.Replace(Environment.NewLine, " ");
+
+
             //Массив слов   
             List<String> Words = new List<String>(Text.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
 
@@ -36,6 +38,7 @@ namespace KFU_Text_Analyze
             List<String> NormalizedDesc = Normalized;
             NormalizedDesc.Reverse();
 
+
             //Нормализованная куча уникальных слов
             HashSet<String> NormalizedSet = new HashSet<string>();
             foreach(String w in NormalizedDesc)
@@ -43,9 +46,9 @@ namespace KFU_Text_Analyze
                 NormalizedSet.Add(w);
             }
 
+
             //Количество слов
             a.TotalWordsCount = Words.Count();
-
             //Количество уникальных слов
             a.UniqueWordsCount = NormalizedSet.Count();
 
@@ -59,6 +62,7 @@ namespace KFU_Text_Analyze
                 i++;
             }
             a.TenLongestWords = a.TenLongestWords.Remove(a.TenLongestWords.Length - 2);
+
 
             //10 самых частых слов
             Dictionary<String, int> dict = new Dictionary<string, int>();
@@ -108,10 +112,6 @@ namespace KFU_Text_Analyze
             {
                 RussianLettersStatistics.Add(c, 0);
             }
-
-
-
-
             foreach (KeyValuePair<char, int> t in lettersCount)
             {
                 if (t.Key >= 'a' && t.Key <= 'z')
@@ -123,7 +123,10 @@ namespace KFU_Text_Analyze
                 }
             }
             a.EnglishLetterStatistics = EnglishLettersStatistics;
-            a.RussianLetterStatistics = RussianLettersStatistics; 
+            a.RussianLetterStatistics = RussianLettersStatistics;
+
+
+
 
             return a;
         }
