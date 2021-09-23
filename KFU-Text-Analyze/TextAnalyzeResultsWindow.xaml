@@ -42,7 +42,7 @@
                                 <Setter.Value>
                                     <ControlTemplate TargetType="dvc:ColumnDataPoint">
                                         <Grid>
-                                            <Rectangle Fill="MintCream" Stroke="#AAAAAA" StrokeThickness="2"/>
+                                            <Rectangle Fill="#AAAAAA" Stroke="#AAAAAA" StrokeThickness="2"></Rectangle>
                                             <Grid Margin="0 -20 0 0" HorizontalAlignment="Center" VerticalAlignment="Top">
                                                 <TextBlock FontSize="10" Margin="2">
                                                     <Run Text="{TemplateBinding FormattedDependentValue}"></Run>
@@ -90,7 +90,8 @@
                                 <Setter.Value>
                                     <ControlTemplate TargetType="dvc:ColumnDataPoint">
                                         <Grid>
-                                            <Rectangle Fill="MintCream" Stroke="Gray"/>
+                                            <Rectangle Fill="#AAAAAA" Stroke="#AAAAAA" StrokeThickness="2"></Rectangle>
+
                                             <Grid Margin="0 -20 0 0" HorizontalAlignment="Center" VerticalAlignment="Top">
                                                 <TextBlock FontSize="10" Margin="2">
                                                     <Run Text="{TemplateBinding FormattedDependentValue}"></Run>

@@ -16,7 +16,7 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <TextBox x:Name="UserInputField" Style="{StaticResource TextBoxRevealStyle}" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Center"  Height="324" Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Text="Текст для анализа" VerticalAlignment="Center" Width="352" VerticalScrollBarVisibility="Auto" TextChanged="TextBox_TextChanged" Margin="76,118,93,10" />
-        <Button x:Name="btn" Style="{StaticResource ButtonRevealStyle}" Grid.Column="0" Width="95" Height="30"  Grid.Row="1" Content="Анализ" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click"></Button>
+        <Button x:Name="btn" Style="{StaticResource ButtonRevealStyle}" Grid.Column="0" Width="95" Height="30"  Grid.Row="1" Content="Анализ" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click" Margin="16,10,410,10"></Button>
         <Label Content="Выберите файл в формате .txt или введите текст вручную" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="14"/>
         <Button Content="Выбрать файл"  Style="{StaticResource ButtonRevealStyle}" HorizontalAlignment="Left" Margin="16,54,0,0" VerticalAlignment="Top" Width="92" Height="28" Click="Button_Click_1"/>
     </Grid>

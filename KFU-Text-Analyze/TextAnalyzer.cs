@@ -18,7 +18,10 @@ namespace KFU_Text_Analyze
         public AnalysisResult Analyze()
         {
             AnalysisResult a = new AnalysisResult();
+            
             a.InputText = Text;
+            Text = Regex.Replace(Text, @"[^a-zA-ZА-Яа-я ]+", "");
+
             Text = Text.Replace(Environment.NewLine, " ");
             //Массив слов   
             List<String> Words = new List<String>(Text.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
