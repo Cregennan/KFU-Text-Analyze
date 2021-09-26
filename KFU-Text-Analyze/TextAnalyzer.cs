@@ -102,6 +102,7 @@ namespace KFU_Text_Analyze
                     TotalLettersCount++;
                }
             }
+            //Создание статистики символов (Английский и русский языки)
             SortedDictionary<char, double> RussianLettersStatistics = new SortedDictionary<char, double>();
             SortedDictionary<char, double> EnglishLettersStatistics = new SortedDictionary<char, double>();
             for (char c = 'a'; c <= 'z'; c++)

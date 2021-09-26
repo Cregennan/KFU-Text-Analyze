@@ -28,6 +28,9 @@ namespace KFU_Text_Analyze
             InitializeComponent();
             //btn.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         }
+        /// <summary>
+        /// Анализатор текста
+        /// </summary>
         public TextAnalyzer analyzer;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -44,12 +47,11 @@ namespace KFU_Text_Analyze
         {
 
         }
-        /*
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
-        }*/
-
+        /// <summary>
+        /// Открытие файла и отправление его содержимого в текстовое поле
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
