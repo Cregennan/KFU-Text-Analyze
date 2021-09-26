@@ -21,7 +21,7 @@ namespace KFU_Text_Analyze
             a.InputText = Text;
 
             //Нормализация текста (Удаление мусора)
-            Text = Regex.Replace(Text, @"[^a-zA-ZА-Яа-я ]+", "");
+            Text = Regex.Replace(Text, @"[^a-zA-ZА-Яа-я ]+", " ");
             Text = Text.Replace(Environment.NewLine, " ");
 
 

@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:dvt="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
                   xmlns:dvc="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
-                  Title="Результаты анализа текста" Height="707.5" Width="1147.325" Background="{x:Null}" ResizeMode="NoResize">
+                  Title="Результаты анализа текста" Height="707.5" Width="1256.825" Background="{x:Null}" ResizeMode="NoResize">
     <Grid Margin="0,0,0,30">
         <Grid.RowDefinitions>
             <RowDefinition/>
