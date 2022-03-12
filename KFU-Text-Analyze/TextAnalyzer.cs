@@ -28,40 +28,27 @@ namespace KFU_Text_Analyze
             //Массив слов   
             List<String> Words = new List<String>(Text.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
 
+
             //Нормализованные слова
-            List<String> Normalized = new List<String>();
-            foreach(String w in Words)
-            {
-                Normalized.Add(w.ToLower());
-            }
+            List<String> Normalized = Words.Select(x => x.ToLower()).ToList();
             Normalized.Sort((x, y) => x.Length.CompareTo(y.Length));
+
             List<String> NormalizedDesc = Normalized;
             NormalizedDesc.Reverse();
 
 
             //Нормализованная куча уникальных слов
-            HashSet<String> NormalizedSet = new HashSet<string>();
-            foreach(String w in NormalizedDesc)
-            {
-                NormalizedSet.Add(w);
-            }
+            HashSet<String> NormalizedSet = NormalizedDesc.ToHashSet();
 
 
             //Количество слов
             a.TotalWordsCount = Words.Count();
-            //Количество уникальных слов
-            a.UniqueWordsCount = NormalizedSet.Count();
 
 
             //10 самых длинных слов
-            int i = 0;
-            foreach(String w in NormalizedSet)
-            {
-                if (i > 9) break;
-                a.TenLongestWords += w + ", ";
-                i++;
-            }
-            a.TenLongestWords = a.TenLongestWords.Remove(a.TenLongestWords.Length - 2);
+            a.TenLongestWords = String.Join(", ", NormalizedSet.Take(10));
+           
+
 
 
             //10 самых частых слов
@@ -74,16 +61,13 @@ namespace KFU_Text_Analyze
                 }
                 dict[w]++;
             }
+            a.UniqueWordsCount = dict.Where(x => x.Value == 1).Count();
+
+
             var sortedDict = from entry in dict orderby entry.Value descending select entry;
-            int j = 0;
-            foreach(KeyValuePair<string, int> kvp in sortedDict)
-            {
-                if (j > 9) break;
-                a.TenFamousWords += kvp.Key + ", ";
-                j++;
-            }
-            a.TenFamousWords = a.TenFamousWords.Remove(a.TenFamousWords.Length - 2);
-            
+
+            a.TenFamousWords = String.Join(", ", sortedDict.Take(10).Select(x => x.Key));
+
 
             //Статистика букв в тексте
             Dictionary<char, int> lettersCount = new Dictionary<char, int>();
